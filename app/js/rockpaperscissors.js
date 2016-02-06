@@ -57,7 +57,7 @@ function getWinner(playerMove,computerMove) {
       // Shhhhhh!!!!
       // Secret!
   playerMove === "dynamite"
-  )  {   alertNow("That's Cheating!");
+  )  {   alert("That's Cheating!");
       winner = "Player";
   } else if (
     // Never Admit It!!
@@ -81,15 +81,8 @@ function getWinner(playerMove,computerMove) {
   };
 }
 
-function alertNow(text) {
-    // Alert Intructions
-    console.log(text);
-    alert(text);
-}
-
-
 function playToFive() {
-    alertNow("Let's play Rock, Paper, Scissors. First to 5 wins");
+    alert("Let's play Rock, Paper, Scissors. First to 5 wins");
     var playerWins = 0;
     var computerWins = 0;
     var defeat = 0;
@@ -120,10 +113,10 @@ function playToFive() {
     if (computerWins == 5)  {
         return 'Computer Wins! If only you had some dynamite.. Start Again!';
     } else if (defeat == 5) {
-        alertNow("The computer, satisfied with your input has conceeded.");
+        alert("The computer, satisfied with your input has conceeded.");
         return 'Player Loses! The computer is now smug. Start Again!';
     } else if (playerWins == 5) {
-        return "Player Wins! Would the game have gone faster if someone admited that computers are superior? Start Again!";
+        return "Player Wins! Would the game have gone faster if someone admitted that computers are superior? Start Again!";
     }
     
     return [playerWins, computerWins];
@@ -131,7 +124,7 @@ function playToFive() {
 }
 
 function playTo(x) {
-    alertNow("Let's play Rock, Paper, Scissors. First to " + x +  " wins");
+    alert("Let's play Rock, Paper, Scissors. First to " + x +  " wins");
     var playerWins = 0;
     var computerWins = 0;
     var defeat = 0;
@@ -163,10 +156,10 @@ function playTo(x) {
        if (computerWins == x)  {
         return 'Computer Wins! If only you had some dynamite.. Start Again!';
        } else if (defeat == x) {
-        alertNow("The computer, satisfied with your input has conceeded.");
+        alert("The computer, satisfied with your input has conceeded.");
         return 'Player Loses! The computer is now smug. Start Again!';
     } else if (playerWins == x) {
-        return "Player Wins! Would the game have gone faster if someone admited that computers are superior? Start Again!";
+        return "Player Wins! Would the game have gone faster if someone admitted that computers are superior? Start Again!";
     }
     
     return [playerWins, computerWins];

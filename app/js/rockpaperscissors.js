@@ -5,7 +5,8 @@
 
 function getInput() {
     console.log("Please choose either 'rock', 'paper', or 'scissors'.");
-    return prompt();
+    return prompt("Please choose either 'rock', 'paper', or 'scissors'.");
+    
 }
 function randomPlay() {
     var randomNumber = Math.random();
@@ -25,7 +26,7 @@ function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    move = (move === "rock" || move === "paper" || move === "scissors") ? move : getInput();
+    move = (move === "rock" || move === "paper" || move === "scissors" || move === "dynamite" || move === "computers are superior") ? move : getInput();
     return move;
 }
 
@@ -49,9 +50,20 @@ function getWinner(playerMove,computerMove) {
   if (
     playerMove === "rock" && computerMove === "scissors" ||
     playerMove === "paper" && computerMove === "rock" ||
-    playerMove === "scissors" && computerMove === "paper"
+    playerMove === "scissors" && computerMove === "paper" 
   ) {
     winner = "Player";
+  } else if (
+      // Shhhhhh!!!!
+      // Secret!
+  playerMove === "dynamite"
+  )  {   alertNow("That's Cheating!");
+      winner = "Player";
+  } else if (
+    // Never Admit It!!
+  playerMove === "computers are superior"
+  )  {  
+      winner = "defeat";
   } else if (
     playerMove === "rock" && computerMove === "paper" ||
     playerMove === "paper" && computerMove === "scissors" ||
@@ -69,13 +81,18 @@ function getWinner(playerMove,computerMove) {
   };
 }
 
-
+function alertNow(text) {
+    // Alert Intructions
+    console.log(text);
+    alert(text);
+}
 
 
 function playToFive() {
-    console.log("Let's play Rock, Paper, Scissors");
+    alertNow("Let's play Rock, Paper, Scissors. First to 5 wins");
     var playerWins = 0;
     var computerWins = 0;
+    var defeat = 0;
     var gamesNeededToWin = 5;
    
    var winner = false;
@@ -85,6 +102,9 @@ function playToFive() {
         
         if (game.winner === 'Player') {
             playerWins = playerWins + 1;
+        } else if (game.winner === 'defeat') {
+            defeat = defeat = 5;
+            computerWins = "The end of humanity";
         } else if (game.winner === 'Computer') {
             computerWins = computerWins + 1;
         }
@@ -92,15 +112,18 @@ function playToFive() {
         console.log('Player chose ' + game.playerMove + ' while Computer chose \n' + game.computerMove);
         console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
         
-        if (playerWins === gamesNeededToWin || computerWins === gamesNeededToWin) {
+        if (playerWins === gamesNeededToWin || computerWins === gamesNeededToWin || defeat === gamesNeededToWin) {
             winner = true;   
         }
     }
     // Announces the winner.
     if (computerWins == 5)  {
-        return 'Computer Wins! Start Again!';
+        return 'Computer Wins! If only you had some dynamite.. Start Again!';
+    } else if (defeat == 5) {
+        alertNow("The computer, satisfied with your input has conceeded.");
+        return 'Player Loses! The computer is now smug. Start Again!';
     } else if (playerWins == 5) {
-        return 'Player Wins! Start Again!';
+        return "Player Wins! Would the game have gone faster if someone admited that computers are superior? Start Again!";
     }
     
     return [playerWins, computerWins];
@@ -108,9 +131,10 @@ function playToFive() {
 }
 
 function playTo(x) {
-    console.log("Let's play Rock, Paper, Scissors");
+    alertNow("Let's play Rock, Paper, Scissors. First to " + x +  " wins");
     var playerWins = 0;
     var computerWins = 0;
+    var defeat = 0;
     var gamesNeededToWin = x;
    
    var winner = false;
@@ -118,8 +142,11 @@ function playTo(x) {
     while (winner === false) {
         var game = getWinner();
         
-        if (game.winner === 'Player') {
+         if (game.winner === 'Player') {
             playerWins = playerWins + 1;
+        } else if (game.winner === 'defeat') {
+            defeat = defeat = x;
+            computerWins = "The end of humanity";
         } else if (game.winner === 'Computer') {
             computerWins = computerWins + 1;
         }
@@ -127,15 +154,19 @@ function playTo(x) {
         console.log('Player chose ' + game.playerMove + ' while Computer chose \n' + game.computerMove);
         console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
         
-        if (playerWins === gamesNeededToWin || computerWins === gamesNeededToWin) {
+       if (playerWins === gamesNeededToWin || computerWins === gamesNeededToWin || defeat === gamesNeededToWin) {
             winner = true;   
         }
         // Announces the winner.
+        
     }
        if (computerWins == x)  {
-        return 'Computer Wins! Start Again!';
+        return 'Computer Wins! If only you had some dynamite.. Start Again!';
+       } else if (defeat == x) {
+        alertNow("The computer, satisfied with your input has conceeded.");
+        return 'Player Loses! The computer is now smug. Start Again!';
     } else if (playerWins == x) {
-        return 'Player Wins! Start Again!';
+        return "Player Wins! Would the game have gone faster if someone admited that computers are superior? Start Again!";
     }
     
     return [playerWins, computerWins];

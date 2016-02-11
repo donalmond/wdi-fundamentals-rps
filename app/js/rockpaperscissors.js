@@ -102,12 +102,18 @@ function playToFive() {
             computerWins = computerWins + 1;
         }
         
-        console.log('Player chose ' + game.playerMove + ' while Computer chose \n' + game.computerMove);
-        alert ('Player chose ' + game.playerMove + ' while Computer chose \n' + game.computerMove);
-        console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
-        alert ('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
+        console.log
+        ('Player chose ' + game.playerMove + ' while Computer chose \n' + game.computerMove);
+        alert 
+        ('Player chose ' + game.playerMove + ' while Computer chose \n' + game.computerMove);
+        console.log
+        ('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
+        alert 
+        ('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
         
-        if (playerWins === gamesNeededToWin || computerWins === gamesNeededToWin || defeat === gamesNeededToWin) {
+        if (playerWins === gamesNeededToWin ||
+            computerWins === gamesNeededToWin ||
+            defeat === gamesNeededToWin) {
             winner = true;   
         }
     }
@@ -146,8 +152,14 @@ function playTo(x) {
             computerWins = computerWins + 1;
         }
         
-        console.log('Player chose ' + game.playerMove + ' while Computer chose \n' + game.computerMove);
-        console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
+        console.log
+        ('Player chose ' + game.playerMove + ' while Computer chose \n' + game.computerMove);
+        alert
+        ('Player chose ' + game.playerMove + ' while Computer chose \n' + game.computerMove);
+        console.log
+        ('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
+        alert 
+        ('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
         
        if (playerWins === gamesNeededToWin || computerWins === gamesNeededToWin || defeat === gamesNeededToWin) {
             winner = true;   
@@ -165,5 +177,4 @@ function playTo(x) {
     }
     
     return [playerWins, computerWins];
-    
 }
